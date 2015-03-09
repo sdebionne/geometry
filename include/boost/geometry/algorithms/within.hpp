@@ -57,8 +57,18 @@
 #include <boost/geometry/algorithms/detail/overlay/do_reverse.hpp>
 #include <deque>
 
+BOOST_GEOMETRY_REGISTER_ALGORITHM(within)
+
 namespace boost { namespace geometry
 {
+
+//struct within_tag : algorithm_tag
+//{
+//    static const char* what() { return "within"; }
+//};
+
+
+
 
 #ifndef DOXYGEN_NO_DETAIL
 namespace detail { namespace within {
@@ -96,7 +106,7 @@ template
     typename Tag2 = typename tag<Geometry2>::type
 >
 struct within
-    : not_implemented<Tag1, Tag2>
+    : not_implemented<within_tag, Tag1, Tag2>
 {};
 
 
@@ -460,7 +470,7 @@ struct within<
     }
 };
 
-}
+} // namespace resolve_variant
 
 
 /*!

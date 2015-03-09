@@ -203,8 +203,9 @@ template <typename Geometry1,
           typename Result,
           bool IsSequence = boost::mpl::is_sequence<Result>::value>
 struct result_handler_type
-    : not_implemented<Result>
-{};
+{
+    typedef nyi::not_implemented_result_handler type;
+};
 
 template <typename Geometry1, typename Geometry2>
 struct result_handler_type<Geometry1, Geometry2, matrix9, false>
